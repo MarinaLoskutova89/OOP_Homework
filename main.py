@@ -66,8 +66,10 @@ class Lecturer(Mentor):
 
     def get_avg_lecture_grades(self):
         if self.grades:
-            res = round(sum(self.grades) / len(self.grades), 2)
-            return res
+            lecture_grades = 0
+            for grades in self.grades:
+                lecture_grades += round(sum(self.grades) / len(self.grades), 2)
+                return lecture_grades
         else:
             return 'Ошибка'
 
@@ -135,9 +137,10 @@ vladislav_soroka.rate_hw(dmitriy_kotikov, 'Python', 4)
 
 dmitriy_kotikov.rate_lecturers(stanislav_korolev, 'Python', 4)
 natalia_vasina.rate_lecturers(stanislav_korolev, 'Python', 9)
+natalia_vasina.rate_lecturers(stanislav_korolev, 'Python', 5)
 
 dmitriy_kotikov.rate_lecturers(maksim_rodin, 'Git', 7)
-natalia_vasina.rate_lecturers(maksim_rodin, 'Git', 9)
+dmitriy_kotikov.rate_lecturers(maksim_rodin, 'Git', 8)
 
 print(natalia_vasina)
 print(dmitriy_kotikov)
